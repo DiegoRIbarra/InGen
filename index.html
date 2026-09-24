@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InGen | International Genetics Incorporated</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Estilos Personalizados -->
+    <style>
+        :root {
+            --ingen-accent: #9caf88;
+            --bs-info: #9caf88;
+            --bs-info-rgb: 156, 175, 136;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        /* Navbar con efecto blur */
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .navbar-brand img {
+            height: 45px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to right, rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.6)), url('https://images.unsplash.com/photo-1530213786676-41589139f485?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-title {
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-size: 4rem;
+        }
+        .hero-title span {
+            color: var(--ingen-accent);
+        }
+        .hero-visual {
+            width: min(100%, 420px);
+            filter: drop-shadow(0 0 28px rgba(156, 175, 136, 0.2));
+        }
+        .btn-ingen {
+            --bs-btn-color: #000;
+            --bs-btn-bg: var(--ingen-accent);
+            --bs-btn-border-color: var(--ingen-accent);
+            --bs-btn-hover-color: #000;
+            --bs-btn-hover-bg: #7f966b;
+            --bs-btn-hover-border-color: #7f966b;
+            --bs-btn-focus-shadow-rgb: 156, 175, 136;
+        }
+        /* Iconos de las tarjetas */
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--ingen-accent);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        .card {
+            border: 1px solid rgba(255,255,255,0.05);
+            background-color: #161b22;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--ingen-accent);
+            box-shadow: 0 0 20px rgba(156, 175, 136, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <!-- Aquí está la ruta de tu logo según tu árbol de archivos -->
+                <img src="src/images/LogoInGen.jpg" alt="InGen Logo">
+                <span class="fw-bold fs-4">InGen</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <span class="badge text-bg-info mb-3 px-3 py-2 rounded-pill"><i class="bi bi-stars"></i> Pioneros en Genética</span>
+                    <h1 class="hero-title text-white mb-4">Creamos el <span>Futuro</span><br>a partir del Pasado.</h1>
+                    <p class="lead text-secondary mb-5 fs-4">International Genetics Incorporated lidera la revolución bio-tecnológica global. Redefiniendo lo que es biológicamente posible.</p>
+                    <div class="d-flex gap-3 flex-column flex-sm-row">
+                        <button class="btn btn-ingen btn-lg fw-bold rounded-pill px-5 py-3 text-dark">
+                            <i class="bi bi-rocket-takeoff me-2"></i> Conocenos
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
+                    <img class="hero-visual" src="src/images/jurassicWorld.svg" alt="Emblema de Jurassic World">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios / Características -->
+    <section id="research" class="py-5" style="background-color: #0d1117;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-info text-uppercase fw-bold tracking-wide">Áreas de Especialidad</h6>
+                <h2 class="display-5 fw-bold mb-3">Tecnología de Vanguardia</h2>
+                <p class="text-secondary mx-auto" style="max-width: 600px;">Nuestros laboratorios están equipados con los sistemas de cómputo y bases de datos relacionales más potentes para secuenciación genética de alta fidelidad.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center rounded-4">
+                        <div class="card-body">
+                            <i class="bi bi-fingerprint feature-icon"></i>
+                            <h4 class="card-title fw-bold">Extracción de ADN</h4>
+                            <p class="card-text text-secondary mt-3">Técnicas avanzadas de paleogenética para la recuperación de genomas extintos preservados en ámbar.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center rounded-4">
+                        <div class="card-body">
+                            <i class="bi bi-cpu feature-icon"></i>
+                            <h4 class="card-title fw-bold">Bio-Computación</h4>
+                            <p class="card-text text-secondary mt-3">Análisis masivo de datos mediante superordenadores e inteligencia artificial para completar secuencias genómicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center rounded-4">
+                        <div class="card-body">
+                            <i class="bi bi-shield-lock feature-icon"></i>
+                            <h4 class="card-title fw-bold">Contención Segura</h4>
+                            <p class="card-text text-secondary mt-3">Infraestructura de clase mundial diseñada para mantener ecosistemas controlados y garantizar la máxima seguridad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 border-top" style="border-color: rgba(255,255,255,0.05) !important; background-color: #010409;">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3">InGen <i class="bi bi-activity text-info"></i></h3>
+            <p class="text-secondary mb-4">Ciudad Victoria MX| Isla Nublar, CR</p>
+            <p class="text-muted small">&copy; 2026 International Genetics Incorporated. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (con Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
