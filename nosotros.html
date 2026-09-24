@@ -9,74 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/nosotros.css">
+    <!-- Icono de la pestaña -->
+    <link rel="icon" href="src/images/LogoInGen.jpg" type="image/x-icon">
 
-    <style>
-        :root {
-            --ingen-accent: #9caf88;
-            --bs-info: #9caf88;
-            --bs-info-rgb: 156, 175, 136;
-        }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            padding-top: 80px; /* Espacio para el navbar fijo */
-        }
-        .navbar {
-            background-color: rgba(33, 37, 41, 0.9) !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .navbar-brand img {
-            height: 45px;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-        /* Header Section */
-        .about-header {
-            background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 1)), url('https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
-            background-size: cover;
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(156, 175, 136, 0.2);
-        }
-        .section-icon {
-            font-size: 2.5rem;
-            color: var(--ingen-accent);
-            background: rgba(156, 175, 136, 0.1);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(156, 175, 136, 0.2);
-        }
-        .list-group-item {
-            background-color: transparent;
-            border-color: rgba(255,255,255,0.05);
-            color: #adb5bd;
-            transition: all 0.2s ease;
-        }
-        .list-group-item:hover {
-            background-color: rgba(156, 175, 136, 0.05);
-            color: white;
-            transform: translateX(5px);
-            border-left: 3px solid var(--ingen-accent);
-        }
-        .value-card {
-            background-color: #161b22;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-        }
-        .value-card:hover {
-            border-color: var(--ingen-accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(156, 175, 136, 0.1);
-        }
-        .value-icon {
-            color: #9caf88 !important;
-        }
-    </style>
 </head>
 <body>
 
@@ -94,7 +31,6 @@
                 <ul class="navbar-nav ms-auto fw-semibold">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link active text-info" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#research">Investigación</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -104,13 +40,28 @@
     <!-- Header -->
     <header class="about-header text-center">
         <div class="container">
-            <h1 class="display-3 fw-bold text-white mb-3">ADN Corporativo</h1>
-            <p class="lead text-secondary mx-auto" style="max-width: 700px;">Conoce los pilares fundamentales que impulsan a International Genetics Incorporated a desafiar las leyes del tiempo y la biología.</p>
+            <h1 class="display-3 fw-bold text-white mb-3">Nuestra estrategia</h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 700px;">La filosofía, el panorama y las acciones que orientan el desarrollo de InGen.</p>
         </div>
     </header>
 
+    <!-- Navegación interna de la estrategia -->
+    <div class="strategy-nav-wrap">
+        <div class="container">
+            <nav class="strategy-nav p-2" aria-label="Secciones de nuestra estrategia">
+                <div class="nav nav-pills nav-fill flex-column flex-md-row gap-1">
+                    <a class="nav-link" href="#filosofia"><i class="bi bi-compass me-2"></i>Filosofía</a>
+                    <a class="nav-link" href="#foda"><i class="bi bi-grid-3x3-gap me-2"></i>Panorama FODA</a>
+                    <a class="nav-link" href="#objetivos"><i class="bi bi-bullseye me-2"></i>Objetivos</a>
+                    <a class="nav-link" href="#estrategias"><i class="bi bi-signpost-2 me-2"></i>Estrategias</a>
+                    <a class="nav-link" href="#plan-accion"><i class="bi bi-list-check me-2"></i>Plan de acción</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
     <!-- Misión y Visión Section -->
-    <section class="container py-5 mt-4">
+    <section id="filosofia" class="container py-5 mt-4">
         <div class="row g-5">
             <!-- Misión -->
             <div class="col-lg-6">
@@ -120,7 +71,7 @@
                     </div>
                     <h2 class="fw-bold mb-4">Nuestra Misión</h2>
                     <ul class="list-group list-group-flush fs-5">
-                        <p>Resucitar la fauna y flora prehistorica innovando en la ingeniería genetica</p>
+                        <p>Traer a la vida la fauna y flora prehistórica innovando en la ingeniería genética.</p>
                     </ul>
                 </div>
             </div>
@@ -133,7 +84,7 @@
                     </div>
                     <h2 class="fw-bold mb-4">Nuestra Visión</h2>
                     <ul class="list-group list-group-flush fs-5">
-                        <p>Ser pioneros en la industria genetica trayendo soluciones a problemas complejos</p>
+                        <p>Ser pioneros en la industria genética, trayendo soluciones para la salud actual.</p>
                     </ul>
                 </div>
             </div>
@@ -144,12 +95,12 @@
     <section class="container py-5 mb-5">
         <div class="text-center mb-5">
             <h6 class="text-info text-uppercase fw-bold">Nuestra Filosofía</h6>
-            <h2 class="display-5 fw-bold">Los 5 Valores InGen</h2>
+            <h2 class="display-5 fw-bold">Nuestros valores</h2>
         </div>
         
         <div class="row g-4 justify-content-center">
             <!-- Valor 1 -->
-            <div class="col-md-4 col-lg-2" style="min-width: 220px;">
+            <div class="col-md-4">
                 <div class="card value-card h-100 p-3 text-center rounded-4">
                     <div class="card-body">
                         <i class="bi bi-globe-americas fs-1 value-icon mb-3"></i>
@@ -159,42 +110,191 @@
                 </div>
             </div>
             <!-- Valor 2 -->
-            <div class="col-md-4 col-lg-2" style="min-width: 220px;">
-                <div class="card value-card h-100 p-3 text-center rounded-4">
-                    <div class="card-body">
-                        <i class="bi bi-crosshair fs-1 value-icon mb-3"></i>
-                        <h5 class="card-title fw-bold">Precisión</h5>
-                        <p class="card-text small text-secondary mt-2">Atención al detalle a nivel molecular. Un gen equivocado lo cambia todo.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Valor 3 -->
-            <div class="col-md-4 col-lg-2" style="min-width: 220px;">
+            <div class="col-md-4">
                 <div class="card value-card h-100 p-3 text-center rounded-4">
                     <div class="card-body">
                         <i class="bi bi-compass-fill fs-1 value-icon mb-3"></i>
                         <h5 class="card-title fw-bold">Vanguardia</h5>
-                        <p class="card-text small text-secondary mt-2">Control total sobre nuestros activos biológicos y sus ecosistemas siendo estos los mas innovadores.</p>
+                        <p class="card-text small text-secondary mt-2">Trabajamos en el campo de la genética con una visión innovadora.</p>
                     </div>
                 </div>
             </div>
-            <!-- Valor 4 -->
-            <div class="col-md-4 col-lg-2" style="min-width: 220px;">
-                <div class="card value-card h-100 p-3 text-center rounded-4">
-                    <div class="card-body">
-                        <i class="bi bi-graph-up-arrow fs-1 value-icon mb-3"></i>
-                        <h5 class="card-title fw-bold">Evolución</h5>
-                        <p class="card-text small text-secondary mt-2">Nos adaptamos, aprendemos y mejoramos más rápido que la propia naturaleza.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Valor 5 -->
-            <div class="col-md-4 col-lg-2" style="min-width: 220px;">
+            <!-- Valor 3 -->
+            <div class="col-md-4">
                 <div class="card value-card h-100 p-3 text-center rounded-4">
                     <div class="card-body">
                         <i class="bi bi-shield-fill-check fs-1 value-icon mb-3"></i>
                         <h5 class="card-title fw-bold">Honestidad</h5>
                         <p class="card-text small text-secondary mt-2">Siempre ser transparentes con nuestro progreso y honestos con lo que hacemos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panorama FODA -->
+    <section id="foda" class="strategy-section py-5">
+        <div class="container py-4">
+            <div class="mb-5">
+                <p class="strategy-kicker text-uppercase fw-bold mb-2">02 · Nuestro panorama</p>
+                <h2 class="display-5 fw-bold">Análisis FODA</h2>
+                <p class="text-secondary mb-0">Una lectura clara de las condiciones que rodean a InGen.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <article class="foda-card p-4" style="--foda-color: #9caf88;">
+                        <i class="bi bi-lightning-charge foda-icon fs-2"></i>
+                        <h3 class="h4 mt-3">Fortalezas</h3>
+                        <ul class="foda-list ps-3 mb-0">
+                            <li>Monopolio científico y tecnológico</li>
+                            <li>Propiedad intelectual incalculable</li>
+                            <li>Respaldo financiero masivo</li>
+                            <li>Infraestructura de vanguardia</li>
+                            <li>Capital humano altamente especializado</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article class="foda-card p-4" style="--foda-color: #d6b56d;">
+                        <i class="bi bi-arrow-up-right-circle foda-icon fs-2"></i>
+                        <h3 class="h4 mt-3">Oportunidades</h3>
+                        <ul class="foda-list ps-3 mb-0">
+                            <li>Mercado de entretenimiento sin competencia</li>
+                            <li>Respaldo financiero masivo</li>
+                            <li>Propiedad intelectual incalculable</li>
+                            <li>Infraestructura de vanguardia</li>
+                            <li>Capital humano altamente especializado</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article class="foda-card p-4" style="--foda-color: #c47777;">
+                        <i class="bi bi-exclamation-triangle foda-icon fs-2"></i>
+                        <h3 class="h4 mt-3">Debilidades</h3>
+                        <ul class="foda-list ps-3 mb-0">
+                            <li>Exceso de confianza en la contención</li>
+                            <li>Puntos ciegos en ingeniería genética</li>
+                            <li>Vulnerabilidades críticas en TI</li>
+                            <li>Costos operativos insostenibles</li>
+                            <li>Gestión de recursos humanos deficiente</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article class="foda-card p-4" style="--foda-color: #8c9bb3;">
+                        <i class="bi bi-shield-exclamation foda-icon fs-2"></i>
+                        <h3 class="h4 mt-3">Amenazas</h3>
+                        <ul class="foda-list ps-3 mb-0">
+                            <li>La naturaleza impredecible</li>
+                            <li>Crisis de relaciones públicas y demandas</li>
+                            <li>Espionaje y sabotaje industrial</li>
+                            <li>Intervención y regulación gubernamental</li>
+                            <li>Activismo ecológico y bioético</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos SMART -->
+    <section id="objetivos" class="strategy-section py-5">
+        <div class="container py-4">
+            <div class="mb-5">
+                <p class="strategy-kicker text-uppercase fw-bold mb-2">03 · Hacia dónde vamos</p>
+                <h2 class="display-5 fw-bold">Objetivos SMART</h2>
+                <p class="text-secondary mb-0">Metas concretas para validar el prototipo y ordenar sus datos.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <article class="objective-card p-4">
+                        <span class="objective-number">01</span>
+                        <h3 class="h4 mt-4">Identificación precisa</h3>
+                        <p class="text-secondary">Identificar correctamente el 99% de los huevos mediante lectura por proximidad durante las primeras dos semanas de prueba.</p>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">2 semanas</span></div>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="objective-card p-4">
+                        <span class="objective-number">02</span>
+                        <h3 class="h4 mt-4">Bitácora eficiente</h3>
+                        <p class="text-secondary">Actualizar el estado de todos los especímenes en un tiempo de entre 3 y 7 minutos por revisión diaria.</p>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">Durante pruebas</span></div>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="objective-card p-4">
+                        <span class="objective-number">03</span>
+                        <h3 class="h4 mt-4">Historial confiable</h3>
+                        <p class="text-secondary">Lograr un registro histórico sin duplicados ni pérdidas de lectura durante las pruebas del prototipo.</p>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Cero duplicados</span><span class="badge rounded-pill">Sin pérdidas</span><span class="badge rounded-pill">Prototipo</span></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrategias y plan de acción -->
+    <section id="estrategias" class="strategy-section py-5">
+        <div class="container py-4">
+            <div class="mb-5">
+                <p class="strategy-kicker text-uppercase fw-bold mb-2">04 · Nuestras estrategias</p>
+                <h2 class="display-5 fw-bold">De la idea a la ejecución</h2>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <article class="strategy-card p-4">
+                        <i class="bi bi-upc-scan fs-1"></i>
+                        <h3 class="h4 mt-4">Sistema de identificación</h3>
+                        <p class="text-secondary mb-0">Etiquetas de proximidad asignadas a cada huevo simulado y vinculadas a un registro único.</p>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="strategy-card p-4">
+                        <i class="bi bi-journal-check fs-1"></i>
+                        <h3 class="h4 mt-4">Bitácora digital</h3>
+                        <p class="text-secondary mb-0">Lector y bitácora centralizada para consultar y actualizar rápidamente el estado de cada huevo.</p>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="strategy-card p-4">
+                        <i class="bi bi-database-check fs-1"></i>
+                        <h3 class="h4 mt-4">Control de datos</h3>
+                        <p class="text-secondary mb-0">Validaciones que evitan registros duplicados, incompletos o lecturas no registradas.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div id="plan-accion" class="pt-3">
+                <p class="strategy-kicker text-uppercase fw-bold mb-2">05 · De la estrategia a la acción</p>
+                <h2 class="h1 fw-bold mb-4">Plan de acción</h2>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <article class="action-card p-4">
+                            <p class="action-label mb-2">01 · Identificación</p>
+                            <h3 class="h5">Sistema de identificación</h3>
+                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> Genética y TI</p>
+                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $10.4 billones</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Primeras dos semanas de prueba</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="action-card p-4">
+                            <p class="action-label mb-2">02 · Registro</p>
+                            <h3 class="h5">Bitácora digital</h3>
+                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI</p>
+                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $1.2 millones</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Revisiones diarias durante las pruebas</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="action-card p-4">
+                            <p class="action-label mb-2">03 · Validación</p>
+                            <h3 class="h5">Control de datos</h3>
+                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI y Adiestramiento</p>
+                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $4.1 billones</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Durante las pruebas del prototipo</p>
+                        </article>
                     </div>
                 </div>
             </div>

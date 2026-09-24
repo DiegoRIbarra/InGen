@@ -1,0 +1,151 @@
+
+        :root {
+            --ingen-accent: #9caf88;
+            --bs-info: #9caf88;
+            --bs-info-rgb: 156, 175, 136;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            padding-top: 80px; /* Espacio para el navbar fijo */
+        }
+        .navbar {
+            background-color: rgba(33, 37, 41, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .navbar-brand img {
+            height: 45px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        /* Header Section */
+        .about-header {
+            background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 1)), url('https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(156, 175, 136, 0.2);
+        }
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--ingen-accent);
+            background: rgba(156, 175, 136, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(156, 175, 136, 0.2);
+        }
+        .list-group-item {
+            background-color: transparent;
+            border-color: rgba(255,255,255,0.05);
+            color: #adb5bd;
+            transition: all 0.2s ease;
+        }
+        .list-group-item:hover {
+            background-color: rgba(156, 175, 136, 0.05);
+            color: white;
+            transform: translateX(5px);
+            border-left: 3px solid var(--ingen-accent);
+        }
+        .value-card {
+            background-color: #161b22;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        .value-card:hover {
+            border-color: var(--ingen-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(156, 175, 136, 0.1);
+        }
+        .value-icon {
+            color: #9caf88 !important;
+        }
+        .strategy-section {
+            border-top: 1px solid rgba(156, 175, 136, 0.12);
+        }
+        [id] {
+            scroll-margin-top: 88px;
+        }
+        .strategy-kicker {
+            color: var(--ingen-accent);
+            letter-spacing: 0.14em;
+            font-size: 0.75rem;
+        }
+        .strategy-nav {
+            background-color: #161b22;
+            border: 1px solid rgba(156, 175, 136, 0.16);
+            border-radius: 1rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+        }
+        .strategy-nav-wrap {
+            position: sticky;
+            top: 80px;
+            z-index: 1010;
+            padding: 1rem 0;
+            background-color: rgba(13, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .strategy-nav .nav-link {
+            color: #adb5bd;
+            border-radius: 0.7rem;
+            font-weight: 600;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .strategy-nav .nav-link:hover,
+        .strategy-nav .nav-link:focus {
+            color: #f8f9fa;
+            background-color: rgba(156, 175, 136, 0.1);
+        }
+        .strategy-nav .nav-link .bi {
+            color: var(--ingen-accent);
+        }
+        .foda-card,
+        .objective-card,
+        .strategy-card,
+        .action-card {
+            background: linear-gradient(145deg, #161b22, #11161d);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 1rem;
+            height: 100%;
+        }
+        .foda-card {
+            border-top: 3px solid var(--foda-color);
+        }
+        .foda-icon,
+        .strategy-card .bi,
+        .objective-number {
+            color: var(--ingen-accent);
+        }
+        .foda-list li {
+            color: #adb5bd;
+            margin-bottom: 0.6rem;
+        }
+        .objective-number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .smart-tags span {
+            background-color: rgba(156, 175, 136, 0.12);
+            border: 1px solid rgba(156, 175, 136, 0.22);
+            color: #dbe6d1;
+            font-size: 0.72rem;
+        }
+        .action-card .action-label {
+            color: var(--ingen-accent);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 767.98px) {
+            .about-header {
+                padding: 70px 0;
+            }
+            .display-3 {
+                font-size: 2.5rem;
+            }
+        }
