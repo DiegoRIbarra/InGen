@@ -45,20 +45,10 @@
         </div>
     </header>
 
-    <!-- Navegación interna de la estrategia -->
-    <div class="strategy-nav-wrap">
-        <div class="container">
-            <nav class="strategy-nav p-2" aria-label="Secciones de nuestra estrategia">
-                <div class="nav nav-pills nav-fill flex-column flex-md-row gap-1">
-                    <a class="nav-link" href="#filosofia"><i class="bi bi-compass me-2"></i>Filosofía</a>
-                    <a class="nav-link" href="#foda"><i class="bi bi-grid-3x3-gap me-2"></i>Panorama FODA</a>
-                    <a class="nav-link" href="#objetivos"><i class="bi bi-bullseye me-2"></i>Objetivos</a>
-                    <a class="nav-link" href="#estrategias"><i class="bi bi-signpost-2 me-2"></i>Estrategias</a>
-                    <a class="nav-link" href="#plan-accion"><i class="bi bi-list-check me-2"></i>Plan de acción</a>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <aside class="strategy-nav-wrap" aria-label="Secciones de la empresa">
+        <span class="floating-nav-label">Secciones</span>
+        <nav id="contextNav" class="strategy-nav" aria-label="Secciones de la empresa"></nav>
+    </aside>
 
     <!-- Misión y Visión Section -->
     <section id="filosofia" class="container py-5 mt-4">
@@ -92,7 +82,7 @@
     </section>
 
     <!-- Valores Section -->
-    <section class="container py-5 mb-5">
+    <section id="valores" class="container py-5 mb-5">
         <div class="text-center mb-5">
             <h6 class="text-info text-uppercase fw-bold">Nuestra Filosofía</h6>
             <h2 class="display-5 fw-bold">Nuestros valores</h2>
@@ -140,59 +130,11 @@
                 <h2 class="display-5 fw-bold">Análisis FODA</h2>
                 <p class="text-secondary mb-0">Una lectura clara de las condiciones que rodean a InGen.</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <article class="foda-card p-4" style="--foda-color: #9caf88;">
-                        <i class="bi bi-lightning-charge foda-icon fs-2"></i>
-                        <h3 class="h4 mt-3">Fortalezas</h3>
-                        <ul class="foda-list ps-3 mb-0">
-                            <li>Monopolio científico y tecnológico</li>
-                            <li>Propiedad intelectual incalculable</li>
-                            <li>Respaldo financiero masivo</li>
-                            <li>Infraestructura de vanguardia</li>
-                            <li>Capital humano altamente especializado</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-6">
-                    <article class="foda-card p-4" style="--foda-color: #d6b56d;">
-                        <i class="bi bi-arrow-up-right-circle foda-icon fs-2"></i>
-                        <h3 class="h4 mt-3">Oportunidades</h3>
-                        <ul class="foda-list ps-3 mb-0">
-                            <li>Mercado de entretenimiento sin competencia</li>
-                            <li>Respaldo financiero masivo</li>
-                            <li>Propiedad intelectual incalculable</li>
-                            <li>Infraestructura de vanguardia</li>
-                            <li>Capital humano altamente especializado</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-6">
-                    <article class="foda-card p-4" style="--foda-color: #c47777;">
-                        <i class="bi bi-exclamation-triangle foda-icon fs-2"></i>
-                        <h3 class="h4 mt-3">Debilidades</h3>
-                        <ul class="foda-list ps-3 mb-0">
-                            <li>Exceso de confianza en la contención</li>
-                            <li>Puntos ciegos en ingeniería genética</li>
-                            <li>Vulnerabilidades críticas en TI</li>
-                            <li>Costos operativos insostenibles</li>
-                            <li>Gestión de recursos humanos deficiente</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-6">
-                    <article class="foda-card p-4" style="--foda-color: #8c9bb3;">
-                        <i class="bi bi-shield-exclamation foda-icon fs-2"></i>
-                        <h3 class="h4 mt-3">Amenazas</h3>
-                        <ul class="foda-list ps-3 mb-0">
-                            <li>La naturaleza impredecible</li>
-                            <li>Crisis de relaciones públicas y demandas</li>
-                            <li>Espionaje y sabotaje industrial</li>
-                            <li>Intervención y regulación gubernamental</li>
-                            <li>Activismo ecológico y bioético</li>
-                        </ul>
-                    </article>
-                </div>
+            <div class="row g-4 foda-interactive">
+                <div class="col-md-6"><button class="foda-flip" type="button" style="--foda-color:#9caf88"><span class="foda-flip-inner"><span class="foda-side foda-front"><i class="bi bi-lightning-charge foda-icon fs-2"></i><strong>Fortalezas</strong><small>Haz clic para explorar</small></span><span class="foda-side foda-back"><strong>Fortalezas</strong><ul class="foda-list"><li>Monopolio científico y tecnológico</li><li>Propiedad intelectual incalculable</li><li>Respaldo financiero masivo</li><li>Infraestructura de vanguardia</li><li>Capital humano altamente especializado</li></ul></span></span></button></div>
+                <div class="col-md-6"><button class="foda-flip" type="button" style="--foda-color:#d6b56d"><span class="foda-flip-inner"><span class="foda-side foda-front"><i class="bi bi-arrow-up-right-circle foda-icon fs-2"></i><strong>Oportunidades</strong><small>Haz clic para explorar</small></span><span class="foda-side foda-back"><strong>Oportunidades</strong><ul class="foda-list"><li>Mercado de entretenimiento sin competencia</li><li>Propiedad intelectual incalculable</li><li>Respaldo financiero masivo</li><li>Infraestructura de vanguardia</li><li>Capital humano altamente especializado</li></ul></span></span></button></div>
+                <div class="col-md-6"><button class="foda-flip" type="button" style="--foda-color:#c47777"><span class="foda-flip-inner"><span class="foda-side foda-front"><i class="bi bi-exclamation-triangle foda-icon fs-2"></i><strong>Debilidades</strong><small>Haz clic para explorar</small></span><span class="foda-side foda-back"><strong>Debilidades</strong><ul class="foda-list"><li>Exceso de confianza en la contención</li><li>Puntos ciegos en ingeniería genética</li><li>Vulnerabilidades críticas en TI</li><li>Costos operativos insostenibles</li><li>Gestión de recursos humanos deficiente</li></ul></span></span></button></div>
+                <div class="col-md-6"><button class="foda-flip" type="button" style="--foda-color:#8c9bb3"><span class="foda-flip-inner"><span class="foda-side foda-front"><i class="bi bi-shield-exclamation foda-icon fs-2"></i><strong>Amenazas</strong><small>Haz clic para explorar</small></span><span class="foda-side foda-back"><strong>Amenazas</strong><ul class="foda-list"><li>La naturaleza impredecible</li><li>Crisis de relaciones públicas y demandas</li><li>Espionaje y sabotaje industrial</li><li>Intervención y regulación gubernamental</li><li>Activismo ecológico y bioético</li></ul></span></span></button></div>
             </div>
         </div>
     </section>
@@ -211,7 +153,7 @@
                         <span class="objective-number">01</span>
                         <h3 class="h4 mt-4">Identificación precisa</h3>
                         <p class="text-secondary">Identificar correctamente el 99% de los huevos mediante lectura por proximidad durante las primeras dos semanas de prueba.</p>
-                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">2 semanas</span></div>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">2 semanas</span></div><details class="smart-details"><summary>Ver desglose SMART</summary><p><strong>Alcanzable:</strong> etiquetas de proximidad adheridas a los huevos simulados.</p><p><strong>Relevante:</strong> apoya el valor de honestidad con el trabajo.</p><p><strong>Temporizado:</strong> primeras dos semanas de prueba.</p></details>
                     </article>
                 </div>
                 <div class="col-lg-4">
@@ -219,7 +161,7 @@
                         <span class="objective-number">02</span>
                         <h3 class="h4 mt-4">Bitácora eficiente</h3>
                         <p class="text-secondary">Actualizar el estado de todos los especímenes en un tiempo de entre 3 y 7 minutos por revisión diaria.</p>
-                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">Durante pruebas</span></div>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Específico</span><span class="badge rounded-pill">Medible</span><span class="badge rounded-pill">Durante pruebas</span></div><details class="smart-details"><summary>Ver desglose SMART</summary><p><strong>Alcanzable:</strong> la rapidez del sistema de lectura facilita la actualización.</p><p><strong>Relevante:</strong> resuelve problemas de control de datos.</p><p><strong>Temporizado:</strong> durante las pruebas del prototipo.</p></details>
                     </article>
                 </div>
                 <div class="col-lg-4">
@@ -227,7 +169,7 @@
                         <span class="objective-number">03</span>
                         <h3 class="h4 mt-4">Historial confiable</h3>
                         <p class="text-secondary">Lograr un registro histórico sin duplicados ni pérdidas de lectura durante las pruebas del prototipo.</p>
-                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Cero duplicados</span><span class="badge rounded-pill">Sin pérdidas</span><span class="badge rounded-pill">Prototipo</span></div>
+                        <div class="smart-tags d-flex flex-wrap gap-2"><span class="badge rounded-pill">Cero duplicados</span><span class="badge rounded-pill">Sin pérdidas</span><span class="badge rounded-pill">Prototipo</span></div><details class="smart-details"><summary>Ver desglose SMART</summary><p><strong>Alcanzable:</strong> organizar los datos del sistema permite lograrlo.</p><p><strong>Relevante:</strong> mantiene un orden impecable en los procesos.</p><p><strong>Temporizado:</strong> tiempo de pruebas del prototipo.</p></details>
                     </article>
                 </div>
             </div>
@@ -246,21 +188,21 @@
                     <article class="strategy-card p-4">
                         <i class="bi bi-upc-scan fs-1"></i>
                         <h3 class="h4 mt-4">Sistema de identificación</h3>
-                        <p class="text-secondary mb-0">Etiquetas de proximidad asignadas a cada huevo simulado y vinculadas a un registro único.</p>
+                        <p class="text-secondary mb-0">Etiquetas de proximidad asignadas a cada huevo simulado y vinculadas a un registro único.</p><button class="strategy-trigger" type="button">Explorar actividad <i class="bi bi-arrow-right"></i></button><p class="card-reveal">Realizar pruebas periódicas de lectura durante las primeras dos semanas para detectar errores y ajustar el sistema.</p>
                     </article>
                 </div>
                 <div class="col-lg-4">
                     <article class="strategy-card p-4">
                         <i class="bi bi-journal-check fs-1"></i>
                         <h3 class="h4 mt-4">Bitácora digital</h3>
-                        <p class="text-secondary mb-0">Lector y bitácora centralizada para consultar y actualizar rápidamente el estado de cada huevo.</p>
+                        <p class="text-secondary mb-0">Lector y bitácora centralizada para consultar y actualizar rápidamente el estado de cada huevo.</p><button class="strategy-trigger" type="button">Explorar actividad <i class="bi bi-arrow-right"></i></button><p class="card-reveal">Sustituir registros manuales por una revisión digital centralizada que reduzca el tiempo de cada actualización.</p>
                     </article>
                 </div>
                 <div class="col-lg-4">
                     <article class="strategy-card p-4">
                         <i class="bi bi-database-check fs-1"></i>
                         <h3 class="h4 mt-4">Control de datos</h3>
-                        <p class="text-secondary mb-0">Validaciones que evitan registros duplicados, incompletos o lecturas no registradas.</p>
+                        <p class="text-secondary mb-0">Validaciones que evitan registros duplicados, incompletos o lecturas no registradas.</p><button class="strategy-trigger" type="button">Explorar actividad <i class="bi bi-arrow-right"></i></button><p class="card-reveal">Asignar un identificador único, guardar cada lectura y validar la información antes de registrarla.</p>
                     </article>
                 </div>
             </div>
@@ -275,7 +217,7 @@
                             <h3 class="h5">Sistema de identificación</h3>
                             <p class="text-secondary small mb-2"><strong>Responsable:</strong> Genética y TI</p>
                             <p class="text-secondary small mb-2"><strong>Recursos:</strong> $10.4 billones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Primeras dos semanas de prueba</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Primeras dos semanas de prueba</p><div class="action-progress"><span style="width:33%"></span></div><small class="progress-label">Etapa 1 de 3 · Identificación</small>
                         </article>
                     </div>
                     <div class="col-md-4">
@@ -284,7 +226,7 @@
                             <h3 class="h5">Bitácora digital</h3>
                             <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI</p>
                             <p class="text-secondary small mb-2"><strong>Recursos:</strong> $1.2 millones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Revisiones diarias durante las pruebas</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Revisiones diarias durante las pruebas</p><div class="action-progress"><span style="width:66%"></span></div><small class="progress-label">Etapa 2 de 3 · Registro</small>
                         </article>
                     </div>
                     <div class="col-md-4">
@@ -293,12 +235,28 @@
                             <h3 class="h5">Control de datos</h3>
                             <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI y Adiestramiento</p>
                             <p class="text-secondary small mb-2"><strong>Recursos:</strong> $4.1 billones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Durante las pruebas del prototipo</p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Durante las pruebas del prototipo</p><div class="action-progress"><span style="width:100%"></span></div><small class="progress-label">Etapa 3 de 3 · Validación</small>
                         </article>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section id="organizacion" class="added-section added-section-light py-5">
+        <div class="container py-4">
+            <div class="section-heading-row"><span>06</span><div><p class="strategy-kicker text-uppercase fw-bold mb-2">Nuestra organización</p><h2 class="display-5 fw-bold">Personas y áreas con una misma misión.</h2></div></div>
+            <div class="org-chart mb-5"><article class="org-node org-chief"><strong>Dr. Said Polanco</strong><small>CEO</small></article><div class="org-branch"><article class="org-node"><strong>Dr. Mario Dev</strong><small>Socio financiero</small></article><article class="org-node"><strong>Dr. Mario SOA</strong><small>Junta directiva</small></article></div><div class="org-team"><article class="org-node"><strong>Sofia Cano</strong><small>División de seguridad</small></article><article class="org-node"><strong>Angel Coronado</strong><small>Jefe de genética</small></article><article class="org-node"><strong>Malibrán Gonzalez</strong><small>Jefe de conservación</small></article><article class="org-node"><strong>Diego Ramirez</strong><small>Jefe de programación</small></article></div></div>
+            <div id="departamentos" class="row g-3"><div class="col-md-3"><article class="department-card"><i class="bi bi-shield-check"></i><h3>Seguridad</h3><p>Protocolos y normas para garantizar la seguridad de todos.</p></article></div><div class="col-md-3"><article class="department-card"><i class="bi bi-bezier2"></i><h3>Genética</h3><p>Estudio y manipulación genética para clonar y producir especímenes.</p></article></div><div class="col-md-3"><article class="department-card"><i class="bi bi-heart-pulse"></i><h3>Conservación</h3><p>Incubación, cría y cuidado de las especies producidas.</p></article></div><div class="col-md-3"><article class="department-card"><i class="bi bi-cpu"></i><h3>Programación</h3><p>Sistemas inteligentes y proyectos de innovación tecnológica.</p></article></div></div>
+        </div>
+    </section>
+
+    <section id="trabajo" class="added-section py-5">
+        <div class="container py-4"><div class="section-heading-row"><span>07</span><div><p class="strategy-kicker text-uppercase fw-bold mb-2">Nuestra forma de trabajar</p><h2 class="display-5 fw-bold">Una cultura guiada por la precisión.</h2></div></div><div class="work-grid"><article><i class="bi bi-compass"></i><h3>Cultura de trabajo</h3><p>Honestidad con el trabajo, vanguardia en genética y conciencia en el cuidado del medio ambiente.</p></article><article><i class="bi bi-broadcast"></i><h3>Cómo lideramos</h3><p>Liderazgo transformacional y preventivo, con innovación y visión científica.</p></article><article><i class="bi bi-chat-square-text"></i><h3>Cómo nos comunicamos</h3><p>Comunicación bidireccional, centralizada, transparente y digitalizada.</p></article><article><i class="bi bi-people"></i><h3>Trabajamos en equipo</h3><p>Sinergia interdisciplinaria, responsabilidad compartida y validación cruzada.</p></article></div></div>
+    </section>
+
+    <section id="compromiso" class="added-section added-section-light py-5">
+        <div class="container py-4"><div class="section-heading-row"><span>08</span><div><p class="strategy-kicker text-uppercase fw-bold mb-2">Nuestro compromiso</p><h2 class="display-5 fw-bold">Resultados que se pueden verificar.</h2></div></div><div class="commitment-grid"><article><span>01</span><h3>Información confiable</h3><p>Información completa, actualizada y organizada.</p><strong>Cero registros duplicados o pérdida de información.</strong><div class="verification-line"><i class="bi bi-check2-circle"></i> Bitácora digital revisada periódicamente</div></article><article><span>02</span><h3>Identificación precisa</h3><p>Lectura por proximidad para cada espécimen.</p><strong>Mínimo 99% de precisión.</strong><div class="verification-line"><i class="bi bi-check2-circle"></i> Pruebas y comparación de registros</div></article><article><span>03</span><h3>Servicio eficiente</h3><p>Procesos rápidos de revisión y actualización.</p><strong>Revisiones de 3 a 7 minutos.</strong><div class="verification-line"><i class="bi bi-check2-circle"></i> Registro del tiempo empleado</div></article><article><span>04</span><h3>Responsabilidad ambiental</h3><p>Reducir el impacto y manejar responsablemente los especímenes.</p><strong>Cumplir los procedimientos ambientales.</strong><div class="verification-line"><i class="bi bi-check2-circle"></i> Registros de cumplimiento e incidencias</div></article><article><span>05</span><h3>Uso responsable</h3><p>Fines científicos, educativos y de investigación.</p><strong>100% de los protocolos de seguridad.</strong><div class="verification-line"><i class="bi bi-check2-circle"></i> Supervisión y registro de actividades</div></article></div><div class="tracking-note"><i class="bi bi-clipboard2-check"></i><p><strong>Seguimiento y mejora:</strong> revisión de resultados, bitácoras, pruebas periódicas y supervisión de protocolos.</p></div></div>
     </section>
 
     <!-- Footer -->
@@ -315,6 +273,29 @@
         </div>
     </footer>
 
+    <script>
+        const contextIds = ['filosofia', 'valores', 'foda', 'objetivos', 'estrategias', 'plan-accion', 'organizacion', 'trabajo', 'compromiso'];
+        const contextSections = contextIds.map((id) => document.getElementById(id)).filter(Boolean);
+        const contextNav = document.querySelector('#contextNav');
+        const contextLabels = { filosofia: 'Filosofía', valores: 'Valores', foda: 'Análisis FODA', objetivos: 'Objetivos SMART', estrategias: 'Estrategias', 'plan-accion': 'Plan de acción', organizacion: 'Organización', trabajo: 'Forma de trabajar', compromiso: 'Compromiso' };
+        function updateContextNav(activeIndex) {
+            const nearby = [];
+            for (let offset = -2; offset <= 2; offset += 1) {
+                const index = activeIndex + offset;
+                if (contextSections[index]) nearby.push({ section: contextSections[index], offset, index });
+            }
+            contextNav.innerHTML = nearby.map(({ section, offset, index }) => `<a class="context-link ${offset === 0 ? 'is-active' : ''} ${offset < 0 ? 'is-before' : 'is-after'}" href="#${section.id}"><span>${String(index + 1).padStart(2, '0')}</span>${contextLabels[section.id] || section.querySelector('h2')?.textContent || section.id}</a>`).join('');
+        }
+        const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) updateContextNav(contextSections.indexOf(entry.target)); }), { rootMargin: '-35% 0px -50% 0px' });
+        contextSections.forEach((section) => observer.observe(section));
+        updateContextNav(0);
+        document.querySelectorAll('.foda-flip').forEach((card) => card.addEventListener('click', () => card.classList.toggle('is-flipped')));
+        document.querySelectorAll('.strategy-trigger').forEach((trigger) => trigger.addEventListener('click', () => {
+            const card = trigger.closest('.strategy-card');
+            document.querySelectorAll('.strategy-card.is-selected').forEach((selected) => { if (selected !== card) selected.classList.remove('is-selected'); });
+            card.classList.toggle('is-selected');
+        }));
+    </script>
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
