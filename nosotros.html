@@ -46,7 +46,6 @@
     </header>
 
     <aside class="strategy-nav-wrap" aria-label="Secciones de la empresa">
-        <span class="floating-nav-label">Secciones</span>
         <nav id="contextNav" class="strategy-nav" aria-label="Secciones de la empresa"></nav>
     </aside>
 
@@ -210,32 +209,16 @@
             <div id="plan-accion" class="pt-3">
                 <p class="strategy-kicker text-uppercase fw-bold mb-2">05 · De la estrategia a la acción</p>
                 <h2 class="h1 fw-bold mb-4">Plan de acción</h2>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <article class="action-card p-4">
-                            <p class="action-label mb-2">01 · Identificación</p>
-                            <h3 class="h5">Sistema de identificación</h3>
-                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> Genética y TI</p>
-                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $10.4 billones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Primeras dos semanas de prueba</p><div class="action-progress"><span style="width:33%"></span></div><small class="progress-label">Etapa 1 de 3 · Identificación</small>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="action-card p-4">
-                            <p class="action-label mb-2">02 · Registro</p>
-                            <h3 class="h5">Bitácora digital</h3>
-                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI</p>
-                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $1.2 millones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Revisiones diarias durante las pruebas</p><div class="action-progress"><span style="width:66%"></span></div><small class="progress-label">Etapa 2 de 3 · Registro</small>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="action-card p-4">
-                            <p class="action-label mb-2">03 · Validación</p>
-                            <h3 class="h5">Control de datos</h3>
-                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> TI y Adiestramiento</p>
-                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> $4.1 billones</p>
-                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> Durante las pruebas del prototipo</p><div class="action-progress"><span style="width:100%"></span></div><small class="progress-label">Etapa 3 de 3 · Validación</small>
+                <div class="row g-3 action-sequence" aria-label="Etapas del plan de acción">
+                    <div class="col-md-8 mx-auto">
+                        <article class="action-card p-4 is-active" aria-live="polite" aria-current="step">
+                            <p class="action-label mb-2" data-action="label">01 · Identificación</p>
+                            <h3 class="h5" data-action="title">Sistema de identificación</h3>
+                            <p class="text-secondary small mb-2"><strong>Responsable:</strong> <span data-action="owner">Genética y TI</span></p>
+                            <p class="text-secondary small mb-2"><strong>Recursos:</strong> <span data-action="resources">$10.4 billones</span></p>
+                            <p class="text-secondary small mb-0"><strong>Tiempo:</strong> <span data-action="time">Primeras dos semanas de prueba</span></p>
+                            <div class="action-progress" role="progressbar" aria-label="Progreso de identificación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+                            <small class="progress-label" data-action="progressLabel">Etapa 1 de 3 · Identificación</small>
                         </article>
                     </div>
                 </div>
@@ -263,7 +246,7 @@
     <footer class="py-5 border-top" style="border-color: rgba(255,255,255,0.05) !important; background-color: #010409;">
         <div class="container text-center">
             <h3 class="fw-bold mb-3">InGen <i class="bi bi-activity text-info"></i></h3>
-            <p class="text-secondary mb-4">San Diego, CA | Isla Nublar, CR</p>
+            <p class="text-secondary mb-4">Ciudad Victoria, Tamaulipas | México</p>
             <div class="d-flex justify-content-center gap-4 mb-4">
                 <a href="#" class="text-secondary fs-4"><i class="bi bi-github"></i></a>
                 <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter-x"></i></a>
@@ -277,8 +260,10 @@
         const contextIds = ['filosofia', 'valores', 'foda', 'objetivos', 'estrategias', 'plan-accion', 'organizacion', 'trabajo', 'compromiso'];
         const contextSections = contextIds.map((id) => document.getElementById(id)).filter(Boolean);
         const contextNav = document.querySelector('#contextNav');
+        const contextNavWrap = document.querySelector('.strategy-nav-wrap');
         const contextLabels = { filosofia: 'Filosofía', valores: 'Valores', foda: 'Análisis FODA', objetivos: 'Objetivos SMART', estrategias: 'Estrategias', 'plan-accion': 'Plan de acción', organizacion: 'Organización', trabajo: 'Forma de trabajar', compromiso: 'Compromiso' };
         function updateContextNav(activeIndex) {
+            contextNavWrap.classList.toggle('is-light', contextSections[activeIndex]?.classList.contains('added-section-light'));
             const nearby = [];
             for (let offset = -2; offset <= 2; offset += 1) {
                 const index = activeIndex + offset;
@@ -295,6 +280,37 @@
             document.querySelectorAll('.strategy-card.is-selected').forEach((selected) => { if (selected !== card) selected.classList.remove('is-selected'); });
             card.classList.toggle('is-selected');
         }));
+        const actionCard = document.querySelector('.action-sequence .action-card');
+        const actionSteps = [
+            { label: '01 · Identificación', title: 'Sistema de identificación', owner: 'Genética y TI', resources: '$10.4 billones', time: 'Primeras dos semanas de prueba', name: 'identificación' },
+            { label: '02 · Registro', title: 'Bitácora digital', owner: 'TI', resources: '$1.2 millones', time: 'Revisiones diarias durante las pruebas', name: 'registro' },
+            { label: '03 · Validación', title: 'Control de datos', owner: 'TI y Adiestramiento', resources: '$4.1 billones', time: 'Durante las pruebas del prototipo', name: 'validación' }
+        ];
+        const actionDuration = 4200;
+        let actionIndex = 0;
+        let actionTimer;
+        function showActionStep(index) {
+            actionIndex = index;
+            const step = actionSteps[actionIndex];
+            actionCard.querySelector('[data-action="label"]').textContent = step.label;
+            actionCard.querySelector('[data-action="title"]').textContent = step.title;
+            actionCard.querySelector('[data-action="owner"]').textContent = step.owner;
+            actionCard.querySelector('[data-action="resources"]').textContent = step.resources;
+            actionCard.querySelector('[data-action="time"]').textContent = step.time;
+            actionCard.querySelector('[data-action="progressLabel"]').textContent = `Etapa ${actionIndex + 1} de ${actionSteps.length} · ${step.label.slice(5)}`;
+            const progress = actionCard.querySelector('.action-progress');
+            const progressFill = progress.querySelector('span');
+            progress.setAttribute('aria-label', `Progreso de ${step.name}`);
+            progress.setAttribute('aria-valuenow', '0');
+            progressFill.style.width = '0%';
+            window.requestAnimationFrame(() => {
+                progressFill.style.width = '100%';
+                progress.setAttribute('aria-valuenow', '100');
+            });
+            window.clearTimeout(actionTimer);
+            actionTimer = window.setTimeout(() => showActionStep((actionIndex + 1) % actionSteps.length), actionDuration);
+        }
+        if (actionCard && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) showActionStep(0);
     </script>
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
