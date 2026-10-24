@@ -1,0 +1,181 @@
+:root {
+    --ingen-accent: #9caf88;
+    --ingen-bg: #0d1117;
+    --ingen-card: #161b22;
+}
+
+body {
+    background-color: var(--ingen-bg);
+    color: #f8f9fa;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-top: 80px;
+}
+
+.navbar {
+    background-color: rgba(33, 37, 41, 0.92) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand img {
+    height: 45px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.nav-link {
+    transition: color 0.2s ease;
+}
+
+.support-hero {
+    background: linear-gradient(105deg, rgba(13, 17, 23, 0.98) 15%, rgba(13, 17, 23, 0.78)), url("https://images.unsplash.com/photo-1530213786676-41589139f485?q=80&w=2070&auto=format&fit=crop") center / cover;
+    border-bottom: 1px solid rgba(156, 175, 136, 0.2);
+    padding: 110px 0 100px;
+}
+
+.eyebrow {
+    color: var(--ingen-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.support-hero h1 {
+    letter-spacing: -0.04em;
+}
+
+.btn-ingen {
+    --bs-btn-color: #111;
+    --bs-btn-bg: var(--ingen-accent);
+    --bs-btn-border-color: var(--ingen-accent);
+    --bs-btn-hover-color: #111;
+    --bs-btn-hover-bg: #b2c59c;
+    --bs-btn-hover-border-color: #b2c59c;
+}
+
+.hero-panel {
+    background: rgba(22, 27, 34, 0.82);
+    border: 1px solid rgba(156, 175, 136, 0.35);
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    padding: 2.5rem;
+}
+
+.hero-panel-icon,
+.contact-icon {
+    color: var(--ingen-accent);
+}
+
+.hero-panel-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.letter-spacing {
+    letter-spacing: 0.12em;
+}
+
+.section-heading p:last-child {
+    max-width: 650px;
+}
+
+.contact-card {
+    background: var(--ingen-card);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+    color: inherit;
+    padding: 2rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--ingen-accent);
+    box-shadow: 0 12px 30px rgba(156, 175, 136, 0.1);
+    color: inherit;
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    align-items: center;
+    background: rgba(156, 175, 136, 0.11);
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 1.5rem;
+    height: 58px;
+    justify-content: center;
+    width: 58px;
+}
+
+.contact-link {
+    color: var(--ingen-accent);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.form-section {
+    background: #10161d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.follow-up {
+    align-items: flex-start;
+    border-left: 2px solid var(--ingen-accent);
+    display: flex;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.follow-up > i {
+    color: var(--ingen-accent);
+    font-size: 1.5rem;
+}
+
+.support-form {
+    background: var(--ingen-card);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.form-control,
+.form-select {
+    background-color: #0d1117;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #f8f9fa;
+    padding: 0.8rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #0d1117;
+    border-color: var(--ingen-accent);
+    box-shadow: 0 0 0 0.2rem rgba(156, 175, 136, 0.18);
+    color: #f8f9fa;
+}
+
+.form-select option {
+    background-color: #161b22;
+}
+
+footer {
+    background-color: #010409;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[id] {
+    scroll-margin-top: 90px;
+}
+
+@media (max-width: 767.98px) {
+    .support-hero {
+        padding: 80px 0;
+    }
+
+    .support-hero h1 {
+        font-size: 2.8rem;
+    }
+}
