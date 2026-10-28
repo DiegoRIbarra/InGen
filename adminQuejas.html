@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel administrativo | Quejas y sugerencias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="src/images/LogoInGen.jpg" type="image/x-icon">
+    <style>
+        :root {
+            --ingen-accent: #9caf88;
+            --ingen-bg: #0d1117;
+            --ingen-card: #161b22;
+            --ingen-muted: #9ba7b4;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0d1117 0%, #101820 100%);
+            color: #f8f9fa;
+            min-height: 100vh;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .admin-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .topbar {
+            background: rgba(22, 27, 34, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(156, 175, 136, 0.1);
+            border: 1px solid rgba(156, 175, 136, 0.28);
+            border-radius: 999px;
+            color: var(--ingen-accent);
+            padding: 0.5rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .panel {
+            background: var(--ingen-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.2rem;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+        }
+
+        .access-gate {
+            max-width: 540px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+        }
+
+        .access-gate h1 {
+            font-size: clamp(2rem, 2.8vw, 2.6rem);
+            margin-bottom: 0.85rem;
+        }
+
+        .muted {
+            color: var(--ingen-muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(13, 17, 23, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 1.25rem;
+        }
+
+        .stat-label {
+            display: block;
+            color: var(--ingen-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .stat-value {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .table-panel {
+            padding: 1.25rem;
+        }
+
+        .empty-state {
+            padding: 2rem 1rem;
+            text-align: center;
+            color: var(--ingen-muted);
+        }
+
+        .request-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            background: rgba(13, 17, 23, 0.72);
+            padding: 1.1rem 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .request-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .request-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            color: var(--ingen-muted);
+            font-size: 0.82rem;
+        }
+
+        .badge-category {
+            border-radius: 999px;
+            padding: 0.45rem 0.7rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+        }
+
+        .badge-duda {
+            background: rgba(13, 110, 253, 0.15);
+            color: #8ec5ff;
+        }
+
+        .badge-queja {
+            background: rgba(220, 53, 69, 0.15);
+            color: #ff9aa4;
+        }
+
+        .badge-sugerencia {
+            background: rgba(25, 135, 84, 0.15);
+            color: #8ce3b2;
+        }
+
+        .badge-seguimiento {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffd76a;
+        }
+
+        .message-text {
+            color: #f1f4f8;
+            margin: 0.75rem 0 0;
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .btn-ingen {
+            --bs-btn-color: #111;
+            --bs-btn-bg: var(--ingen-accent);
+            --bs-btn-border-color: var(--ingen-accent);
+            --bs-btn-hover-color: #111;
+            --bs-btn-hover-bg: #b2c59c;
+            --bs-btn-hover-border-color: #b2c59c;
+        }
+
+        .form-control {
+            background-color: #0d1117;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #f8f9fa;
+            padding: 0.8rem 1rem;
+        }
+
+        .form-control:focus {
+            background-color: #0d1117;
+            border-color: var(--ingen-accent);
+            box-shadow: 0 0 0 0.2rem rgba(156, 175, 136, 0.18);
+            color: #f8f9fa;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-shell">
+        <header class="topbar">
+            <div class="brand">
+                <img src="src/images/LogoInGen.jpg" alt="Logo de InGen">
+                <span>InGen · Administrador</span>
+            </div>
+            <div class="status-pill">
+                <i class="bi bi-shield-lock"></i>
+                Acceso restringido
+            </div>
+        </header>
+
+        <section id="accessGate" class="panel access-gate">
+            <p class="eyebrow text-uppercase text-info fw-bold mb-3">Portal interno</p>
+            <h1 class="fw-bold">Quejas y sugerencias</h1>
+            <p class="muted mb-4">Esta vista está destinada únicamente para personal administrativo autorizado.</p>
+
+            <form id="adminLoginForm" novalidate>
+                <label class="form-label" for="adminPassword">Contraseña de administrador</label>
+                <input id="adminPassword" class="form-control" type="password" placeholder="Ingresa la contraseña" required>
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-ingen fw-bold rounded-pill py-3">Entrar al panel</button>
+                </div>
+                <p id="loginError" class="text-danger mt-3 mb-0 d-none">La contraseña es incorrecta.</p>
+            </form>
+        </section>
+
+        <main id="adminContent" class="hidden">
+            <div class="stats-grid">
+                <div class="stat-card panel">
+                    <span class="stat-label">Total</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-card panel">
+                    <span class="stat-label">Quejas</span>
+                    <span id="quejasCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-card panel">
+                    <span class="stat-label">Sugerencias</span>
+                    <span id="sugerenciasCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-card panel">
+                    <span class="stat-label">Dudas</span>
+                    <span id="dudasCount" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <h2 class="fw-bold mb-0">Solicitudes recibidas</h2>
+                <button id="logoutButton" class="btn btn-outline-light rounded-pill" type="button">
+                    <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+                </button>
+            </div>
+
+            <section id="requestsList" class="table-panel panel"></section>
+        </main>
+    </div>
+
+    <script src="src/scripts/solicitudes.js"></script>
+    <script>
+        const ADMIN_PASSWORD = 'InGenAdmin2026';
+
+        const accessGate = document.getElementById('accessGate');
+        const adminContent = document.getElementById('adminContent');
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const loginError = document.getElementById('loginError');
+        const requestsList = document.getElementById('requestsList');
+        const logoutButton = document.getElementById('logoutButton');
+
+        function isAdminSessionActive() {
+            return sessionStorage.getItem('ingen_admin_session') === 'active';
+        }
+
+        function setAdminSession(active) {
+            if (active) {
+                sessionStorage.setItem('ingen_admin_session', 'active');
+            } else {
+                sessionStorage.removeItem('ingen_admin_session');
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            if (Number.isNaN(date.getTime())) return 'Sin fecha';
+            return new Intl.DateTimeFormat('es-MX', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            }).format(date);
+        }
+
+        function getBadgeClass(topic) {
+            const normalized = (topic || '').toLowerCase();
+            if (normalized.includes('queja')) return 'badge-queja';
+            if (normalized.includes('suger')) return 'badge-sugerencia';
+            if (normalized.includes('seguimiento')) return 'badge-seguimiento';
+            return 'badge-duda';
+        }
+
+        function renderRequests() {
+            const solicitudes = SolicitudesInGen.obtenerTodas();
+            const total = solicitudes.length;
+            const quejas = solicitudes.filter(item => (item.topic || '').toLowerCase().includes('queja')).length;
+            const sugerencias = solicitudes.filter(item => (item.topic || '').toLowerCase().includes('suger')).length;
+            const dudas = solicitudes.filter(item => {
+                const topic = (item.topic || '').toLowerCase();
+                return topic.includes('duda') || topic.includes('información') || topic.includes('solicitud');
+            }).length;
+
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('quejasCount').textContent = quejas;
+            document.getElementById('sugerenciasCount').textContent = sugerencias;
+            document.getElementById('dudasCount').textContent = dudas;
+
+            if (!solicitudes.length) {
+                requestsList.innerHTML = '<div class="empty-state"><i class="bi bi-inbox fs-1 d-block mb-2"></i><p class="mb-0">No hay quejas o sugerencias registradas aún.</p></div>';
+                return;
+            }
+
+            requestsList.innerHTML = solicitudes.map((item, index) => {
+                const badgeClass = getBadgeClass(item.topic);
+                return `
+                    <article class="request-card">
+                        <div class="request-head">
+                            <div>
+                                <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                                    <h3 class="h5 fw-bold mb-0">${(item.name || 'Cliente sin nombre').replace(/</g, '&lt;')}</h3>
+                                    <span class="badge-category ${badgeClass}">${item.topic || 'Sin asunto'}</span>
+                                </div>
+                                <div class="request-meta">
+                                    <span><i class="bi bi-envelope me-1"></i>${(item.email || 'Sin correo').replace(/</g, '&lt;')}</span>
+                                    <span><i class="bi bi-calendar3 me-1"></i>${formatDate(item.date)}</span>
+                                </div>
+                            </div>
+                            <span class="small text-muted">#${solicitudes.length - index}</span>
+                        </div>
+                        <p class="message-text">${(item.message || '').replace(/</g, '&lt;')}</p>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function showAdminPanel() {
+            accessGate.classList.add('hidden');
+            adminContent.classList.remove('hidden');
+            renderRequests();
+        }
+
+        function hideAdminPanel() {
+            setAdminSession(false);
+            adminContent.classList.add('hidden');
+            accessGate.classList.remove('hidden');
+            adminPasswordInput.value = '';
+            loginError.classList.add('d-none');
+        }
+
+        adminLoginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const value = adminPasswordInput.value.trim();
+            if (value === ADMIN_PASSWORD) {
+                setAdminSession(true);
+                loginError.classList.add('d-none');
+                showAdminPanel();
+                return;
+            }
+
+            loginError.classList.remove('d-none');
+            adminPasswordInput.focus();
+        });
+
+        logoutButton.addEventListener('click', function () {
+            hideAdminPanel();
+        });
+
+        if (isAdminSessionActive()) {
+            showAdminPanel();
+        }
+    </script>
+</body>
+</html>
