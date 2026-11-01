@@ -49,6 +49,8 @@ El panel administrativo no aparece en la navegación pública. Para acceder:
 
 **Acceso directo en GitHub Pages:** [Abrir panel administrativo](https://diegoribarra.github.io/InGen/adminQuejas.html)
 
+Contraseña: InGenAdmin2026
+
 1. Abre el sitio usando el servidor local.
 2. Escribe en el navegador la ruta `adminQuejas.html` o selecciona el archivo desde el explorador del proyecto.
 3. Introduce la contraseña de administrador.
