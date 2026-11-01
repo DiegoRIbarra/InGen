@@ -47,6 +47,8 @@ También puedes iniciar cualquier servidor HTTP desde la carpeta raíz del proye
 
 El panel administrativo no aparece en la navegación pública. Para acceder:
 
+**Acceso directo en GitHub Pages:** [Abrir panel administrativo](https://diegoribarra.github.io/InGen/adminQuejas.html)
+
 1. Abre el sitio usando el servidor local.
 2. Escribe en el navegador la ruta `adminQuejas.html` o selecciona el archivo desde el explorador del proyecto.
 3. Introduce la contraseña de administrador.
@@ -100,4 +102,3 @@ InGen/
 ## Restablecer datos de la demostración
 
 Los datos se almacenan localmente en el navegador. Para iniciar una demostración limpia, abre las herramientas de desarrollador del navegador y elimina el almacenamiento del sitio. Esto borrará las solicitudes, el carrito y los cambios de stock guardados localmente.
-
