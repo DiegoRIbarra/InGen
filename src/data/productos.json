@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ambar-mosquito",
+    "nombre": "Réplica de ámbar con mosquito prehistórico",
+    "descripcion": "Réplica decorativa inspirada en los mosquitos preservados en ámbar. Una pieza ideal para coleccionistas, museos y aficionados a la paleontología.",
+    "categoria": "Paleontología",
+    "precio": 899,
+    "precioAnterior": 1099,
+    "stock": 8,
+    "imagen": "src/images/replicas_ambar.jpeg",
+    "etiqueta": "Oferta"
+  },
+  {
+    "id": "figuras-dinosaurios",
+    "nombre": "Figuras y modelos de dinosaurios",
+    "descripcion": "Figuras coleccionables y modelos anatómicos de distintas especies de dinosaurios, diseñados para el entretenimiento, la educación y la exhibición.",
+    "categoria": "Paleontología",
+    "precio": 649,
+    "stock": 12,
+    "imagen": "src/images/figuras_dinosaurios.jpeg"
+  },
+  {
+    "id": "kit-paleontologia",
+    "nombre": "Kit educativo de paleontología",
+    "descripcion": "Paquete con réplicas de fósiles, herramientas didácticas y una guía para aprender sobre dinosaurios, fósiles y evolución mediante actividades prácticas.",
+    "categoria": "Educación",
+    "precio": 479,
+    "precioAnterior": 599,
+    "stock": 15,
+    "imagen": "src/images/kit_educativo.jpeg",
+    "etiqueta": "Oferta"
+  },
+  {
+    "id": "microscopio-laboratorio",
+    "nombre": "Microscopio de laboratorio InGen",
+    "descripcion": "Equipo óptico para observar muestras biológicas y apoyar investigaciones científicas en laboratorios, universidades y centros de biotecnología.",
+    "categoria": "Laboratorio",
+    "precio": 4890,
+    "stock": 5,
+    "imagen": "src/images/microscopios.jpeg"
+  },
+  {
+    "id": "kit-analisis-adn",
+    "nombre": "Kit de análisis de ADN",
+    "descripcion": "Kit con materiales y reactivos para realizar procedimientos básicos de extracción y análisis de ADN en laboratorios autorizados y entornos educativos.",
+    "categoria": "Genética",
+    "precio": 1590,
+    "precioAnterior": 1890,
+    "stock": 9,
+    "imagen": "src/images/kits_analisis.jpeg",
+    "etiqueta": "Oferta"
+  },
+  {
+    "id": "incubadora-laboratorio",
+    "nombre": "Incubadora de laboratorio",
+    "descripcion": "Equipo para mantener condiciones controladas de temperatura durante procesos de investigación biológica y monitoreo experimental.",
+    "categoria": "Laboratorio",
+    "precio": 8750,
+    "stock": 4,
+    "imagen": "src/images/incubadoras.jpeg"
+  },
+  {
+    "id": "secuenciacion-adn",
+    "nombre": "Análisis y secuenciación de ADN",
+    "descripcion": "Servicio de análisis de muestras genéticas para identificar secuencias, estudiar variaciones y apoyar proyectos de investigación biológica bajo protocolos científicos y éticos.",
+    "categoria": "Genética",
+    "precio": 3290,
+    "stock": 10,
+    "imagen": "src/images/analisis_y_secuenciacion.jpeg"
+  },
+  {
+    "id": "experiencia-paleontologia",
+    "nombre": "Experiencia educativa de paleontología y genética",
+    "descripcion": "Recorrido guiado, exposición y taller interactivo para descubrir la evolución, la genética y la historia de los dinosaurios con modelos y recursos audiovisuales.",
+    "categoria": "Experiencias",
+    "precio": 750,
+    "precioAnterior": 950,
+    "stock": 20,
+    "imagen": "src/images/experiencias_educativas.jpeg",
+    "etiqueta": "Oferta"
+  },
+  {
+    "id": "consultoria-bioseguridad",
+    "nombre": "Consultoría en bioseguridad",
+    "descripcion": "Evaluación de riesgos en laboratorios e instalaciones biotecnológicas, elaboración de protocolos y capacitación del personal para prevenir accidentes.",
+    "categoria": "Servicios",
+    "precio": 6200,
+    "stock": 6,
+    "imagen": "src/images/consultoria_bioseguridad.png"
+  },
+  {
+    "id": "recuerdos-ingen",
+    "nombre": "Línea de productos y recuerdos InGen",
+    "descripcion": "Peluches, ropa, tazas, llaveros y otros artículos con diseños de dinosaurios y la identidad visual de InGen, para visitantes, aficionados y coleccionistas.",
+    "categoria": "Recuerdos",
+    "precio": 299,
+    "precioAnterior": 399,
+    "stock": 25,
+    "imagen": "src/images/productos_recuerdos.jpeg",
+    "etiqueta": "Oferta"
+  }
+]

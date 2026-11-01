@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda oficial InGen: ciencia, paleontología y recuerdos para explorar el futuro.">
+    <title>Tienda InGen | Ciencia que trasciende</title>
+    <link rel="icon" href="src/images/LogoInGen.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root { --ink: #0d1117; --panel: #161b22; --muted: #8b949e; --green: #9caf88; --green-dark: #7f966b; --cream: #0d1117; --orange: #e76f3d; --line: rgba(255,255,255,.1); }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: #f0f6fc; background: var(--cream); font: 15px "Segoe UI", Arial, sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        .topbar { background: #010409; color: var(--green); padding: 8px 5%; text-align: center; font-size: 12px; letter-spacing: .06em; }
+        header { background: rgba(33,37,41,.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 3; }
+        .nav { align-items: center; display: flex; gap: 30px; justify-content: space-between; margin: auto; max-width: 1240px; padding: 15px 24px; }
+        .brand { align-items: center; display: flex; font-size: 23px; font-weight: 800; gap: 10px; }
+        .brand img { border-radius: 50%; height: 39px; object-fit: cover; width: 39px; }
+        .links { display: flex; gap: 22px; }
+        .links a:hover, .brand:hover { color: var(--green); }
+        .cart { background: none; border: 0; color: var(--green); cursor: pointer; font-size: 21px; position: relative; }
+        .cart-count { background: var(--orange); border-radius: 50%; color: #fff; font-size: 10px; min-width: 17px; padding: 2px 4px; position: absolute; right: -9px; text-align: center; top: -8px; }
+        main { margin: auto; max-width: 1240px; padding: 36px 24px 70px; }
+        .crumbs { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+        .hero { align-items: center; background: linear-gradient(120deg, #161b22, #202a22); border: 1px solid var(--line); border-radius: 20px; display: flex; justify-content: space-between; margin-bottom: 44px; overflow: hidden; padding: 42px 7%; }
+        .hero h1 { font-size: clamp(32px, 5vw, 58px); line-height: 1; margin: 12px 0; max-width: 570px; }
+        .hero p { color: var(--muted); font-size: 17px; max-width: 490px; }
+        .hero-mark { color: var(--green); font-size: 130px; opacity: .7; }
+        .eyebrow { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+        .section-head { align-items: end; display: flex; justify-content: space-between; margin: 35px 0 17px; }
+        h2 { font-size: 29px; margin: 0; }
+        .section-head p { color: var(--muted); margin: 0; }
+        .products { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
+        .product { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; min-width: 0; overflow: hidden; transition: .2s ease; }
+        .product:hover { border-color: var(--green); box-shadow: 0 10px 24px rgba(0,0,0,.25); transform: translateY(-3px); }
+        .product-image { align-items: center; background: #f1f3f0; display: flex; height: 205px; justify-content: center; position: relative; }
+        .product-image img { height: 100%; object-fit: contain; width: 100%; }
+        .badge { background: var(--orange); border-radius: 4px; color: white; font-size: 11px; font-weight: 700; left: 12px; padding: 5px 8px; position: absolute; top: 12px; }
+        .product-info { display: flex; flex: 1; flex-direction: column; padding: 15px; }
+        .category { color: var(--green); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        .product h3 { color: #f0f6fc; font-size: 16px; line-height: 1.3; margin: 7px 0 8px; }
+        .product-desc { color: var(--muted); font-size: 13px; line-height: 1.4; margin: 0 0 14px; }
+        .price { font-size: 21px; font-weight: 800; margin-top: auto; }
+        .old-price { color: #89938d; font-size: 13px; font-weight: 400; margin-left: 5px; text-decoration: line-through; }
+        .empty, .error { color: var(--muted); padding: 30px; text-align: center; }
+        .stock { color: var(--muted); font-size: 12px; margin: 8px 0; }
+        .stock.low { color: #f0a36d; }
+        .add { background: var(--green); border: 0; border-radius: 6px; color: #0d1117; cursor: pointer; font-weight: 700; margin-top: 10px; padding: 9px; }
+        .add:hover, .buy:hover { background: var(--green-dark); }
+        .detail { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; display: none; padding: 30px; }
+        .detail.visible { display: block; }
+        .back { border: 0; background: none; color: var(--green); cursor: pointer; font-weight: 700; padding: 0; }
+        .detail-grid { align-items: center; display: grid; gap: 45px; grid-template-columns: 1fr 1fr; margin-top: 20px; }
+        .detail-photo { background: #f1f3f0; border-radius: 15px; height: 390px; object-fit: contain; width: 100%; }
+        .detail h1 { font-size: clamp(28px, 4vw, 43px); margin: 8px 0 14px; }
+        .detail-description { color: var(--muted); font-size: 16px; line-height: 1.65; }
+        .buy { background: var(--green); border: 0; border-radius: 8px; color: #0d1117; cursor: pointer; font-size: 15px; font-weight: 700; margin-top: 23px; padding: 14px 28px; }
+        .related { margin-top: 48px; }
+        .cart-panel { background: var(--panel); border-left: 1px solid var(--line); display: none; height: 100vh; max-width: 390px; overflow-y: auto; padding: 25px; position: fixed; right: 0; top: 0; width: 90%; z-index: 5; }
+        .cart-panel.visible { display: block; }
+        .cart-head { align-items: center; display: flex; justify-content: space-between; margin-bottom: 25px; }
+        .cart-head h2 { color: #f0f6fc; }
+        .close-cart { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 25px; }
+        .cart-item { border-bottom: 1px solid var(--line); padding: 13px 0; }
+        .cart-product { align-items: center; display: flex; gap: 12px; }
+        .cart-thumb { background: #f1f3f0; border-radius: 6px; flex: 0 0 58px; height: 58px; object-fit: contain; width: 58px; }
+        .cart-item strong { display: block; font-size: 14px; }
+        .cart-item small { color: var(--muted); }
+        .cart-actions { align-items: center; display: flex; gap: 8px; justify-content: space-between; margin-top: 8px; }
+        .quantity button { background: #30363d; border: 0; color: #fff; cursor: pointer; padding: 3px 8px; }
+        .cart-total { border-top: 1px solid var(--line); font-size: 20px; font-weight: 800; margin-top: 20px; padding-top: 18px; }
+        .checkout { background: var(--green); border: 0; border-radius: 6px; color: #0d1117; cursor: pointer; font-weight: 700; margin-top: 15px; padding: 13px; width: 100%; }
+        footer { background: #010409; color: #d8e2d9; padding: 28px 5%; text-align: center; }
+        footer small { color: #9baa9f; }
+        @media (max-width: 900px) { .products { grid-template-columns: repeat(3, 1fr); } .hero-mark { font-size: 80px; } }
+        @media (max-width: 650px) { .links { display: none; } main { padding: 24px 15px 50px; } .hero { padding: 30px 24px; } .hero-mark { display: none; } .products { grid-template-columns: repeat(2, 1fr); } .product-image { height: 155px; } .detail { padding: 20px; } .detail-grid { gap: 20px; grid-template-columns: 1fr; } .detail-photo { height: 280px; } }
+        @media (max-width: 390px) { .products { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="topbar">ENVÍO GRATIS EN PEDIDOS MAYORES A $999 MXN</div>
+    <header>
+        <nav class="nav">
+            <a class="brand" href="index.html"><img src="src/images/LogoInGen.jpg" alt="Logo InGen"> InGen <span class="eyebrow">STORE</span></a>
+            <div class="links"><a href="index.html">Inicio</a><a href="#catalogo">Catálogo</a><a href="atencionAlCliente.html">Atención al cliente</a></div>
+            <button class="cart" id="cart-button" aria-label="Abrir carrito"><i class="bi bi-bag"></i><span class="cart-count" id="cart-count">0</span></button>
+        </nav>
+    </header>
+    <main>
+        <div class="crumbs"><a href="index.html">Inicio</a> / Tienda</div>
+        <section class="hero">
+            <div><span class="eyebrow">Explora. Aprende. Descubre.</span><h1>Ciencia que trasciende.</h1><p>Productos y experiencias para acercarte al mundo de la genética y la paleontología.</p></div>
+            <i class="bi bi-fingerprint hero-mark" aria-hidden="true"></i>
+        </section>
+        <div id="catalogo">
+            <section id="offers-section">
+                <div class="section-head"><div><span class="eyebrow">Selección InGen</span><h2>Ofertas Imperdibles</h2></div><p>Precios especiales por tiempo limitado</p></div>
+                <div class="products" id="offers"></div>
+            </section>
+            <section>
+                <div class="section-head"><div><span class="eyebrow">Todo para explorar</span><h2>Todos los productos</h2></div><p id="count"></p></div>
+                <div class="products" id="all-products"></div>
+            </section>
+        </div>
+        <section class="detail" id="detail" aria-live="polite"></section>
+    </main>
+    <aside class="cart-panel" id="cart-panel" aria-label="Carrito de compras">
+        <div class="cart-head"><h2>Tu carrito</h2><button class="close-cart" id="close-cart" aria-label="Cerrar carrito">&times;</button></div>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total">$0 MXN</div>
+        <button class="checkout" id="checkout">Comprar</button>
+    </aside>
+    <footer><strong>InGen</strong><br><small>International Genetics Incorporated · Ciudad Victoria, Tamaulipas</small></footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const money = value => new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 }).format(value);
+        let cart = JSON.parse(localStorage.getItem("ingen-cart") || "{}");
+        let stock = {};
+        const card = product => `<article class="product" data-id="${product.id}" tabindex="0" role="button" aria-label="Ver ${product.nombre}">
+            <div class="product-image">${product.precioAnterior ? `<span class="badge">${Math.round((1 - product.precio / product.precioAnterior) * 100)}% OFF</span>` : ""}
+                <img src="${product.imagen}" alt="${product.nombre}" loading="lazy"></div>
+            <div class="product-info"><span class="category">${product.categoria}</span><h3>${product.nombre}</h3>
+                <p class="product-desc">${product.descripcion}</p><div class="price">${money(product.precio)}${product.precioAnterior ? `<span class="old-price">${money(product.precioAnterior)}</span>` : ""}</div>
+                <p class="stock ${stock[product.id] < 5 ? "low" : ""}">${stock[product.id] > 0 ? `${stock[product.id]} disponibles` : "Agotado"}</p>
+                <button class="add" data-add="${product.id}" ${stock[product.id] < 1 ? "disabled" : ""}>${stock[product.id] > 0 ? "Agregar al carrito" : "Agotado"}</button></div></article>`;
+        let products = [];
+        async function loadProducts() {
+            try {
+                const response = await fetch("src/data/productos.json");
+                if (!response.ok) throw new Error("No se pudo cargar el catálogo.");
+                products = await response.json();
+                products.forEach(product => stock[product.id] = Number(localStorage.getItem(`ingen-stock-${product.id}`) ?? product.stock));
+                renderCatalog();
+                renderCart();
+            } catch (error) {
+                document.querySelector("#offers").innerHTML = `<p class="error">No fue posible cargar el catálogo. ${error.message}</p>`;
+                document.querySelector("#all-products").innerHTML = "";
+            }
+        }
+        function renderCatalog() {
+                document.querySelector("#offers").innerHTML = products.filter(product => product.precioAnterior).map(card).join("");
+                document.querySelector("#all-products").innerHTML = products.map(card).join("");
+                document.querySelector("#count").textContent = `${products.length} productos`;
+                document.querySelectorAll(".product").forEach(item => item.addEventListener("click", event => {
+                    if (!event.target.closest("[data-add]")) showDetail(item.dataset.id);
+                }));
+                document.querySelectorAll("[data-add]").forEach(button => button.addEventListener("click", event => {
+                    event.stopPropagation();
+                    addToCart(button.dataset.add);
+                }));
+        }
+        function showDetail(id) {
+            const product = products.find(item => item.id === id);
+            if (!product) return;
+            document.querySelector("#catalogo").style.display = "none";
+            const detail = document.querySelector("#detail");
+            detail.innerHTML = `<button class="back" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Volver al catálogo</button>
+                <div class="detail-grid"><img class="detail-photo" src="${product.imagen}" alt="${product.nombre}">
+                <div><span class="category">${product.categoria}</span><h1>${product.nombre}</h1><p class="detail-description">${product.descripcion}</p>
+                <div class="price">${money(product.precio)}${product.precioAnterior ? `<span class="old-price">${money(product.precioAnterior)}</span>` : ""}</div><p class="stock">${stock[product.id]} disponibles</p><button class="buy" data-add="${product.id}" ${stock[product.id] < 1 ? "disabled" : ""}><i class="bi bi-bag-plus"></i> Agregar al carrito</button></div></div>
+                <div class="related"><div class="section-head"><div><span class="eyebrow">También te puede interesar</span><h2>Productos relacionados</h2></div></div><div class="products">${products.filter(item => item.categoria === product.categoria && item.id !== product.id).slice(0, 4).map(card).join("")}</div></div>`;
+            detail.classList.add("visible");
+            detail.querySelectorAll(".product").forEach(item => {
+                item.addEventListener("click", event => {
+                    if (!event.target.closest("[data-add]")) showDetail(item.dataset.id);
+                });
+            });
+            detail.querySelectorAll("[data-add]").forEach(button => button.addEventListener("click", event => {
+                event.stopPropagation();
+                addToCart(button.dataset.add);
+            }));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        function closeDetail() { document.querySelector("#detail").classList.remove("visible"); document.querySelector("#catalogo").style.display = "block"; }
+        function addToCart(id) {
+            if (!stock[id]) return;
+            cart[id] = (cart[id] || 0) + 1;
+            stock[id]--;
+            localStorage.setItem("ingen-cart", JSON.stringify(cart));
+            localStorage.setItem(`ingen-stock-${id}`, stock[id]);
+            renderCatalog();
+            renderCart();
+        }
+        function removeFromCart(id) {
+            if (!cart[id]) return;
+            cart[id]--;
+            stock[id]++;
+            if (!cart[id]) delete cart[id];
+            localStorage.setItem("ingen-cart", JSON.stringify(cart));
+            localStorage.setItem(`ingen-stock-${id}`, stock[id]);
+            renderCatalog();
+            renderCart();
+        }
+        function renderCart() {
+            const entries = Object.entries(cart);
+            document.querySelector("#cart-count").textContent = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
+            document.querySelector("#cart-items").innerHTML = entries.length ? entries.map(([id, quantity]) => {
+                const product = products.find(item => item.id === id);
+                return `<div class="cart-item"><div class="cart-product"><img class="cart-thumb" src="${product.imagen}" alt="${product.nombre}"><div><strong>${product.nombre}</strong><small>${money(product.precio)} por unidad</small></div></div><div class="cart-actions"><span class="quantity"><button data-remove="${id}">−</button> ${quantity} <button data-add="${id}">+</button></span><b>${money(product.precio * quantity)}</b></div></div>`;
+            }).join("") : `<p class="empty">Tu carrito está vacío.</p>`;
+            document.querySelector("#cart-total").textContent = money(entries.reduce((sum, [id, quantity]) => sum + products.find(item => item.id === id).precio * quantity, 0));
+            document.querySelectorAll("#cart-items [data-add]").forEach(button => button.addEventListener("click", () => addToCart(button.dataset.add)));
+            document.querySelectorAll("#cart-items [data-remove]").forEach(button => button.addEventListener("click", () => removeFromCart(button.dataset.remove)));
+        }
+        document.querySelector("#cart-button").addEventListener("click", () => document.querySelector("#cart-panel").classList.add("visible"));
+        document.querySelector("#close-cart").addEventListener("click", () => document.querySelector("#cart-panel").classList.remove("visible"));
+        document.querySelector("#checkout").addEventListener("click", () => {
+            if (!Object.keys(cart).length) {
+                Swal.fire({ icon: "info", title: "Tu carrito está vacío", text: "Agrega al menos un producto para continuar.", confirmButtonColor: "#9caf88" });
+                return;
+            }
+            cart = {};
+            localStorage.setItem("ingen-cart", JSON.stringify(cart));
+            renderCart();
+            Swal.fire({ icon: "success", title: "¡Compra realizada!", text: "Tu compra fue procesada. Gracias por elegir InGen.", confirmButtonColor: "#9caf88" });
+        });
+        loadProducts();
+    </script>
+</body>
+</html>
