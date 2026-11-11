@@ -1,0 +1,277 @@
+/* ============================================================
+   conocenos.css · guardar en src/css/conocenos.css
+   ============================================================ */
+:root {
+    --ingen-accent: #9caf88;
+    --ingen-card: #161b22;
+    --bs-info: #9caf88;
+    --bs-info-rgb: 156, 175, 136;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0d1117;
+    padding-top: 80px; /* Espacio para el navbar fijo */
+}
+
+.navbar {
+    background-color: rgba(33, 37, 41, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand img {
+    height: 45px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #010409;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ============================================================
+   Sección del mapa interactivo
+   ============================================================ */
+  .mc {
+    --mc-accent: var(--ingen-accent, #9caf88);
+    --mc-accent-soft: rgba(156, 175, 136, .12);
+    --mc-line: rgba(156, 175, 136, .28);
+    --mc-card: var(--ingen-card, #161b22);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4rem, 9vw, 7.5rem) 1.25rem;
+    background: #10161d;
+    border-top: 1px solid rgba(255, 255, 255, .05);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    color: #f8f9fa;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 90px;
+  }
+
+  /* Curvas de nivel: textura topográfica de la isla */
+  .mc::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 45% at 78% 40%, rgba(156, 175, 136, .13), transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700' viewBox='0 0 900 700' fill='none' stroke='%239caf88' stroke-width='1.2'%3E%3Cg opacity='.10'%3E%3Cpath d='M120 340c10-110 120-190 250-175s235 80 270 185-35 215-160 245-275 20-330-80c-20-38-35-110-30-175z'/%3E%3Cpath d='M170 345c10-85 98-148 200-135s188 62 215 146-28 170-128 195-218 15-262-64c-16-30-28-88-25-142z'/%3E%3Cpath d='M225 348c8-62 76-104 150-95s138 44 158 106-20 123-93 142-158 10-190-46c-12-22-20-64-25-107z'/%3E%3Cpath d='M285 352c6-38 52-62 98-55s86 28 98 66-12 76-58 88-98 5-118-30c-8-14-14-42-20-69z'/%3E%3Cpath d='M345 356c4-18 28-30 52-26s46 14 52 34-6 40-30 46-52 2-62-16c-4-8-8-24-12-38z'/%3E%3C/g%3E%3C/svg%3E")
+      no-repeat 100% 50% / min(900px, 90%);
+    pointer-events: none;
+  }
+
+  .mc__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Columna de texto ---------- */
+  .mc__info { position: sticky; top: 110px; }
+
+  .mc__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: 1.1rem;
+    color: var(--mc-accent);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .mc__eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--mc-accent);
+    border-radius: 2px;
+  }
+
+  .mc__title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.04;
+    color: #f8f9fa;
+  }
+
+  .mc__lead {
+    max-width: 30rem;
+    margin: 0 0 2.25rem;
+    color: #adb5bd;
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+
+  .mc__guia {
+    margin: 0 0 2.25rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: .9rem;
+    max-width: 30rem;
+  }
+  .mc__guia li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.1rem;
+    background: linear-gradient(145deg, #161b22, #11161d);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 1rem;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .mc__guia li:hover {
+    transform: translateX(6px);
+    border-color: var(--mc-accent);
+    box-shadow: 0 12px 30px rgba(156, 175, 136, .10);
+  }
+  .mc__ico {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--mc-accent-soft);
+    color: var(--mc-accent);
+  }
+  .mc__ico svg { width: 22px; height: 22px; }
+  .mc__guia strong { display: block; margin-bottom: .15rem; font-size: 1rem; color: #f8f9fa; }
+  .mc__guia span { color: #adb5bd; font-size: .92rem; line-height: 1.5; }
+
+  .mc__acciones { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; }
+
+  .mc__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .85rem 1.5rem;
+    border: 1px solid var(--mc-accent);
+    border-radius: .6rem;
+    background: var(--mc-accent);
+    color: #111;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .mc__btn svg { width: 18px; height: 18px; }
+  .mc__btn:hover { background: #b2c59c; border-color: #b2c59c; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(156, 175, 136, .25); }
+
+  .mc__link {
+    color: var(--mc-accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .mc__link:hover { color: #b2c59c; border-bottom-color: currentColor; }
+
+  .mc__btn:focus-visible,
+  .mc__link:focus-visible { outline: 2px solid #b2c59c; outline-offset: 3px; }
+
+  /* ---------- Pantalla del mapa ---------- */
+  .mc__pantalla {
+    position: relative;
+    padding: 10px;
+    background: rgba(22, 27, 34, .9);
+    border: 1px solid var(--mc-line);
+    border-radius: 1.25rem;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .5), 0 0 60px rgba(156, 175, 136, .10);
+  }
+
+  /* Esquinas de visor */
+  .mc__pantalla::before,
+  .mc__pantalla::after {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border: 2px solid var(--mc-accent);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .mc__pantalla::before { top: -7px; left: -7px; border-right: 0; border-bottom: 0; border-radius: 14px 0 0 0; }
+  .mc__pantalla::after { bottom: -7px; right: -7px; border-left: 0; border-top: 0; border-radius: 0 0 14px 0; }
+
+  .mc__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .55rem .9rem .75rem;
+    color: #adb5bd;
+    font-size: .82rem;
+  }
+  .mc__barra b { color: #f8f9fa; font-weight: 600; }
+
+  .mc__estado { display: inline-flex; align-items: center; gap: .5rem; color: var(--mc-accent); font-weight: 600; }
+  .mc__estado i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mc-accent);
+    box-shadow: 0 0 0 0 rgba(156, 175, 136, .6);
+    animation: mc-pulso 2.2s ease-out infinite;
+  }
+  @keyframes mc-pulso {
+    0% { box-shadow: 0 0 0 0 rgba(156, 175, 136, .55); }
+    70%, 100% { box-shadow: 0 0 0 10px rgba(156, 175, 136, 0); }
+  }
+
+  /* Relación original del mapa 1194 × 1400 */
+  .mc__visor {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 117.25%;
+    overflow: hidden;
+    border-radius: .85rem;
+    background: #0d1117;
+  }
+  .mc__visor::before {
+    content: "Cargando mapa…";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-size: .9rem;
+  }
+  .mc__visor iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mc__visor:fullscreen { height: 100%; padding-bottom: 0; border-radius: 0; }
+  .mc__visor:-webkit-full-screen { height: 100%; padding-bottom: 0; border-radius: 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 991.98px) {
+    .mc__grid { grid-template-columns: minmax(0, 1fr); }
+    .mc__info { position: static; }
+    .mc__pantalla { max-width: 640px; margin: 0 auto; width: 100%; }
+    .mc::before { background-position: 50% 80%; opacity: .7; }
+  }
+  @media (max-width: 575.98px) {
+    .mc__pantalla { padding: 7px; border-radius: 1rem; }
+    .mc__barra { font-size: .76rem; padding: .45rem .6rem .6rem; }
+    .mc__btn { width: 100%; justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mc__estado i { animation: none; }
+    .mc__guia li, .mc__btn { transition: none; }
+  }
