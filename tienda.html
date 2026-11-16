@@ -10,10 +10,10 @@
     <style>
         :root { --ink: #0d1117; --panel: #161b22; --muted: #8b949e; --green: #9caf88; --green-dark: #7f966b; --cream: #0d1117; --orange: #e76f3d; --line: rgba(255,255,255,.1); }
         * { box-sizing: border-box; }
-        body { margin: 0; color: #f0f6fc; background: var(--cream); font: 15px "Segoe UI", Arial, sans-serif; }
+        body { margin: 0; color: #f0f6fc; background: radial-gradient(circle at 8% 18%, rgba(156,175,136,.1), transparent 25%), radial-gradient(circle at 90% 65%, rgba(46,83,70,.15), transparent 30%), var(--cream); font: 15px "Segoe UI", Arial, sans-serif; }
         a { color: inherit; text-decoration: none; }
         .topbar { background: #010409; color: var(--green); padding: 8px 5%; text-align: center; font-size: 12px; letter-spacing: .06em; }
-        header { background: rgba(33,37,41,.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 3; }
+        header { background: rgba(18,28,30,.72); backdrop-filter: blur(18px) saturate(130%); border-bottom: 1px solid rgba(255,255,255,.13); box-shadow: 0 12px 30px rgba(0,0,0,.18); position: sticky; top: 0; z-index: 3; }
         .nav { align-items: center; display: flex; gap: 30px; justify-content: space-between; margin: auto; max-width: 1240px; padding: 15px 24px; }
         .brand { align-items: center; display: flex; font-size: 23px; font-weight: 800; gap: 10px; }
         .brand img { border-radius: 50%; height: 39px; object-fit: cover; width: 39px; }
@@ -23,7 +23,8 @@
         .cart-count { background: var(--orange); border-radius: 50%; color: #fff; font-size: 10px; min-width: 17px; padding: 2px 4px; position: absolute; right: -9px; text-align: center; top: -8px; }
         main { margin: auto; max-width: 1240px; padding: 36px 24px 70px; }
         .crumbs { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
-        .hero { align-items: center; background: linear-gradient(120deg, #161b22, #202a22); border: 1px solid var(--line); border-radius: 20px; display: flex; justify-content: space-between; margin-bottom: 44px; overflow: hidden; padding: 42px 7%; }
+        .hero { align-items: center; background: linear-gradient(120deg, rgba(28,42,42,.7), rgba(32,48,38,.44)); backdrop-filter: blur(18px) saturate(125%); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; box-shadow: inset 0 1px rgba(255,255,255,.1), 0 24px 60px rgba(0,0,0,.2); display: flex; justify-content: space-between; margin-bottom: 44px; overflow: hidden; padding: 42px 7%; }
+        body.detail-mode .crumbs, body.detail-mode .hero { display: none; }
         .hero h1 { font-size: clamp(32px, 5vw, 58px); line-height: 1; margin: 12px 0; max-width: 570px; }
         .hero p { color: var(--muted); font-size: 17px; max-width: 490px; }
         .hero-mark { color: var(--green); font-size: 130px; opacity: .7; }
@@ -31,8 +32,11 @@
         .section-head { align-items: end; display: flex; justify-content: space-between; margin: 35px 0 17px; }
         h2 { font-size: 29px; margin: 0; }
         .section-head p { color: var(--muted); margin: 0; }
+        .catalog-menu { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+        .catalog-filter { background: rgba(31,45,43,.48); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; color: #b6c1bb; cursor: pointer; font: inherit; font-weight: 700; padding: 10px 18px; transition: .2s ease; }
+        .catalog-filter:hover, .catalog-filter.active { background: rgba(156,175,136,.2); border-color: var(--green); color: #f0f6fc; box-shadow: 0 8px 22px rgba(156,175,136,.12); }
         .products { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
-        .product { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; min-width: 0; overflow: hidden; transition: .2s ease; }
+        .product { background: linear-gradient(145deg, rgba(31,43,43,.7), rgba(16,24,29,.58)); backdrop-filter: blur(16px) saturate(120%); border: 1px solid rgba(255,255,255,.13); border-radius: 14px; cursor: pointer; display: flex; flex-direction: column; min-width: 0; overflow: hidden; transition: .2s ease; }
         .product:hover { border-color: var(--green); box-shadow: 0 10px 24px rgba(0,0,0,.25); transform: translateY(-3px); }
         .product-image { align-items: center; background: #f1f3f0; display: flex; height: 205px; justify-content: center; position: relative; }
         .product-image img { height: 100%; object-fit: contain; width: 100%; }
@@ -48,7 +52,7 @@
         .stock.low { color: #f0a36d; }
         .add { background: var(--green); border: 0; border-radius: 6px; color: #0d1117; cursor: pointer; font-weight: 700; margin-top: 10px; padding: 9px; }
         .add:hover, .buy:hover { background: var(--green-dark); }
-        .detail { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; display: none; padding: 30px; }
+        .detail { background: linear-gradient(145deg, rgba(31,43,43,.76), rgba(16,24,29,.62)); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; box-shadow: 0 24px 60px rgba(0,0,0,.24); display: none; padding: 30px; }
         .detail.visible { display: block; }
         .back { border: 0; background: none; color: var(--green); cursor: pointer; font-weight: 700; padding: 0; }
         .detail-grid { align-items: center; display: grid; gap: 45px; grid-template-columns: 1fr 1fr; margin-top: 20px; }
@@ -57,7 +61,7 @@
         .detail-description { color: var(--muted); font-size: 16px; line-height: 1.65; }
         .buy { background: var(--green); border: 0; border-radius: 8px; color: #0d1117; cursor: pointer; font-size: 15px; font-weight: 700; margin-top: 23px; padding: 14px 28px; }
         .related { margin-top: 48px; }
-        .cart-panel { background: var(--panel); border-left: 1px solid var(--line); display: none; height: 100vh; max-width: 390px; overflow-y: auto; padding: 25px; position: fixed; right: 0; top: 0; width: 90%; z-index: 5; }
+        .cart-panel { background: rgba(20,30,31,.86); backdrop-filter: blur(24px) saturate(130%); border-left: 1px solid rgba(255,255,255,.15); box-shadow: -20px 0 60px rgba(0,0,0,.3); display: none; height: 100vh; max-width: 390px; overflow-y: auto; padding: 25px; position: fixed; right: 0; top: 0; width: 90%; z-index: 5; }
         .cart-panel.visible { display: block; }
         .cart-head { align-items: center; display: flex; justify-content: space-between; margin-bottom: 25px; }
         .cart-head h2 { color: #f0f6fc; }
@@ -94,13 +98,13 @@
             <i class="bi bi-fingerprint hero-mark" aria-hidden="true"></i>
         </section>
         <div id="catalogo">
-            <section id="offers-section">
-                <div class="section-head"><div><span class="eyebrow">Selección InGen</span><h2>Ofertas Imperdibles</h2></div><p>Precios especiales por tiempo limitado</p></div>
-                <div class="products" id="offers"></div>
-            </section>
-            <section>
-                <div class="section-head"><div><span class="eyebrow">Todo para explorar</span><h2>Todos los productos</h2></div><p id="count"></p></div>
-                <div class="products" id="all-products"></div>
+            <section id="catalog-section">
+                <div class="section-head"><div><span class="eyebrow" id="catalog-kicker">Selección InGen</span><h2 id="catalog-title">Ofertas exclusivas</h2></div><p id="count"></p></div>
+                <div class="catalog-menu" aria-label="Filtros del catálogo">
+                    <button class="catalog-filter active" type="button" data-filter="all">Ver todo</button>
+                    <button class="catalog-filter" type="button" data-filter="offers">Ofertas exclusivas</button>
+                </div>
+                <div class="products" id="catalog-grid"></div>
             </section>
         </div>
         <section class="detail" id="detail" aria-live="polite"></section>
@@ -117,6 +121,7 @@
         const money = value => new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 }).format(value);
         let cart = JSON.parse(localStorage.getItem("ingen-cart") || "{}");
         let stock = {};
+        let activeFilter = "all";
         const card = product => `<article class="product" data-id="${product.id}" tabindex="0" role="button" aria-label="Ver ${product.nombre}">
             <div class="product-image">${product.precioAnterior ? `<span class="badge">${Math.round((1 - product.precio / product.precioAnterior) * 100)}% OFF</span>` : ""}
                 <img src="${product.imagen}" alt="${product.nombre}" loading="lazy"></div>
@@ -134,14 +139,15 @@
                 renderCatalog();
                 renderCart();
             } catch (error) {
-                document.querySelector("#offers").innerHTML = `<p class="error">No fue posible cargar el catálogo. ${error.message}</p>`;
-                document.querySelector("#all-products").innerHTML = "";
+                document.querySelector("#catalog-grid").innerHTML = `<p class="error">No fue posible cargar el catálogo. ${error.message}</p>`;
             }
         }
         function renderCatalog() {
-                document.querySelector("#offers").innerHTML = products.filter(product => product.precioAnterior).map(card).join("");
-                document.querySelector("#all-products").innerHTML = products.map(card).join("");
-                document.querySelector("#count").textContent = `${products.length} productos`;
+                const visibleProducts = activeFilter === "offers" ? products.filter(product => product.precioAnterior) : products;
+                document.querySelector("#catalog-grid").innerHTML = visibleProducts.map(card).join("");
+                document.querySelector("#catalog-kicker").textContent = activeFilter === "offers" ? "Selección InGen" : "Catálogo completo";
+                document.querySelector("#catalog-title").textContent = activeFilter === "offers" ? "Ofertas exclusivas" : "Todos los productos";
+                document.querySelector("#count").textContent = `${visibleProducts.length} productos`;
                 document.querySelectorAll(".product").forEach(item => item.addEventListener("click", event => {
                     if (!event.target.closest("[data-add]")) showDetail(item.dataset.id);
                 }));
@@ -154,6 +160,7 @@
             const product = products.find(item => item.id === id);
             if (!product) return;
             document.querySelector("#catalogo").style.display = "none";
+            document.body.classList.add("detail-mode");
             const detail = document.querySelector("#detail");
             detail.innerHTML = `<button class="back" onclick="closeDetail()"><i class="bi bi-arrow-left"></i> Volver al catálogo</button>
                 <div class="detail-grid"><img class="detail-photo" src="${product.imagen}" alt="${product.nombre}">
@@ -172,7 +179,12 @@
             }));
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
-        function closeDetail() { document.querySelector("#detail").classList.remove("visible"); document.querySelector("#catalogo").style.display = "block"; }
+        function closeDetail() { document.querySelector("#detail").classList.remove("visible"); document.querySelector("#catalogo").style.display = "block"; document.body.classList.remove("detail-mode"); }
+        document.querySelectorAll("[data-filter]").forEach(button => button.addEventListener("click", () => {
+            activeFilter = button.dataset.filter;
+            document.querySelectorAll("[data-filter]").forEach(filter => filter.classList.toggle("active", filter === button));
+            renderCatalog();
+        }));
         function addToCart(id) {
             if (!stock[id]) return;
             cart[id] = (cart[id] || 0) + 1;

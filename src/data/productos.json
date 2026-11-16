@@ -98,5 +98,25 @@
     "stock": 25,
     "imagen": "src/images/productos_recuerdos.jpeg",
     "etiqueta": "Oferta"
+  },
+  {
+    "id": "boleto-entrada-general",
+    "nombre": "Boleto de entrada general",
+    "descripcion": "Acceso general a las instalaciones y experiencias educativas de InGen durante una visita.",
+    "categoria": "Boletos",
+    "precio": 650,
+    "stock": 40,
+    "imagen": "src/images/boletos entrada general.png"
+  },
+  {
+    "id": "boleto-entrada-vip",
+    "nombre": "Boleto de entrada VIP",
+    "descripcion": "Acceso preferente a las instalaciones, exhibiciones y experiencias especiales de InGen.",
+    "categoria": "Boletos",
+    "precio": 1200,
+    "precioAnterior": 1500,
+    "stock": 20,
+    "imagen": "src/images/boletos entrada VIP.png",
+    "etiqueta": "Oferta"
   }
 ]
